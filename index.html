@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Indian Garden | Best Indian Cuisine in Orkney — Kirkwall</title>
+<meta name="description" content="Indian Garden — Kirkwall's beloved Indian restaurant & takeaway. Authentic curries, tandoori grill, biryani. Dine-in, takeaway & delivery. Open daily from 4 PM." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#faf5ea; --cream2:#f3ead6; --card:#fffdf7;
+    --maroon:#5c1d12; --maroon-dk:#3d120c; --saffron:#d97e06; --saffron-lt:#f5a623;
+    --ink:#2e1a12; --muted:#7a5f4d; --line:rgba(92,29,18,.14);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;overflow-x:clip;background:var(--cream)}
+  body{font-family:'Public Sans',system-ui,sans-serif;background:var(--cream);color:var(--ink);overflow-x:clip;line-height:1.6;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;display:block}
+  h1,h2,h3{font-family:'Fraunces',serif;line-height:1.15;letter-spacing:.005em}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 20px}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--saffron);text-transform:uppercase;letter-spacing:.22em;font-size:11px;font-weight:700;margin-bottom:14px}
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--saffron)}
+  .sec{padding:70px 0}
+  .sec-title{font-size:clamp(28px,5vw,44px);font-weight:700;color:var(--maroon-dk);margin-bottom:10px}
+  .sec-title em{font-style:italic;color:var(--saffron)}
+  .sec-sub{color:var(--muted);max-width:620px;font-size:16px}
+
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+  /* offer ribbon */
+  .ribbon{background:var(--maroon);color:var(--cream);text-align:center;font-size:12.5px;font-weight:600;letter-spacing:.08em;padding:9px 16px;text-transform:uppercase}
+  .ribbon b{color:var(--saffron-lt)}
+
+  /* NAV */
+  header{position:sticky;top:0;z-index:50;background:rgba(250,245,234,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:10px;height:66px}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--maroon-dk)}
+  .brand-mark{width:40px;height:40px;border-radius:50%;background:radial-gradient(circle at 35% 30%,var(--saffron-lt),var(--saffron) 55%,#a35c04);display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Fraunces',serif;font-weight:800;font-size:19px;flex:none;box-shadow:0 4px 12px rgba(217,126,6,.35)}
+  .brand-name{font-family:'Fraunces',serif;font-weight:700;font-size:18px;white-space:nowrap;line-height:1.1}
+  .brand-name small{display:block;font-family:'Public Sans',sans-serif;font-weight:600;font-size:9px;letter-spacing:.24em;color:var(--saffron);text-transform:uppercase}
+  .nav-links{display:none;gap:26px}
+  .nav-links a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:600;letter-spacing:.03em;transition:color .2s}
+  .nav-links a:hover{color:var(--maroon)}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--saffron),#b86404);color:#fff;font-weight:700;font-size:13px;padding:11px 20px;border-radius:999px;text-decoration:none;border:none;cursor:pointer;transition:transform .15s,box-shadow .2s;white-space:nowrap;box-shadow:0 6px 18px rgba(217,126,6,.3)}
+  .btn:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(217,126,6,.4)}
+  .btn-outline{background:transparent;color:var(--maroon);border:1.5px solid var(--maroon);box-shadow:none}
+  .btn-outline:hover{border-color:var(--saffron);color:var(--saffron);box-shadow:none}
+  .burger{display:flex;background:none;border:1.5px solid var(--line);border-radius:10px;padding:8px;cursor:pointer;color:var(--maroon)}
+  .mobile-menu{display:none;flex-direction:column;gap:4px;padding:12px 20px 18px;border-top:1px solid var(--line);background:var(--cream)}
+  .mobile-menu.open{display:flex}
+  .mobile-menu a{color:var(--maroon-dk);text-decoration:none;padding:11px 4px;font-size:15px;font-weight:600;border-bottom:1px solid var(--line)}
+  @media(min-width:900px){.nav-links{display:flex}.burger{display:none}.nav{height:78px}.brand-name{font-size:21px}}
+  @media(max-width:899px){.nav .btn{font-size:12px;padding:9px 13px}.nav .btn svg{width:12px;height:12px}.brand-name{font-size:16px}}
+
+  /* HERO */
+  .hero{position:relative;min-height:88svh;display:flex;align-items:center;overflow:hidden;background:var(--maroon-dk)}
+  .hero-bg{position:absolute;inset:0;z-index:0}
+  .hero-bg img{width:100%;height:100%;object-fit:cover;opacity:.55}
+  .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(61,18,12,.55) 0%,rgba(61,18,12,.3) 45%,var(--maroon-dk) 100%)}
+  .hero-inner{position:relative;z-index:1;padding:80px 0 60px;max-width:1140px;margin:0 auto;padding-left:20px;padding-right:20px;width:100%}
+  .hero .eyebrow{color:var(--saffron-lt)}
+  .hero h1{font-size:clamp(36px,7.5vw,72px);font-weight:800;color:#fff;max-width:620px;margin-bottom:16px}
+  .hero h1 em{font-style:italic;color:var(--saffron-lt)}
+  .hero p{color:#f0e2cc;max-width:520px;font-size:clamp(15px,2.4vw,18px);margin-bottom:26px}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:28px}
+  .hero-cta .btn-outline{color:#fff;border-color:rgba(255,255,255,.5)}
+  .hero-cta .btn-outline:hover{border-color:var(--saffron-lt);color:var(--saffron-lt)}
+  .pill-row{display:flex;flex-wrap:wrap;gap:10px}
+  .pill{display:inline-flex;align-items:center;gap:8px;background:rgba(0,0,0,.4);border:1px solid rgba(245,166,35,.35);border-radius:999px;padding:8px 15px;font-size:12.5px;color:#fff;backdrop-filter:blur(6px)}
+  .pill b{color:var(--saffron-lt)}
+
+  /* ABOUT */
+  .about-grid{display:grid;gap:36px;align-items:center}
+  @media(min-width:900px){.about-grid{grid-template-columns:1fr 1fr;gap:56px}}
+  .about-img{border-radius:22px;overflow:hidden;box-shadow:0 24px 60px rgba(61,18,12,.22);border:6px solid #fff}
+  .about-img img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/4.4}
+  .feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px}
+  .feat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;font-size:13.5px;font-weight:600;color:var(--maroon-dk);display:flex;gap:10px;align-items:flex-start}
+  .feat svg{flex:none;margin-top:2px}
+
+  /* MENU */
+  .menu-sec{background:var(--maroon-dk);color:#f6efe3;position:relative;overflow:hidden}
+  .menu-sec .sec-title{color:#fff}
+  .menu-sec .sec-title em{color:var(--saffron-lt)}
+  .menu-sec .sec-sub{color:#d8c3ac}
+  .tabs{display:flex;gap:8px;flex-wrap:wrap;margin:30px 0 8px}
+  .tab{background:transparent;border:1.5px solid rgba(245,166,35,.35);color:#e8d3b8;font-family:'Public Sans',sans-serif;font-size:13px;font-weight:700;letter-spacing:.04em;padding:10px 18px;border-radius:999px;cursor:pointer;transition:all .2s}
+  .tab.active{background:var(--saffron);border-color:var(--saffron);color:#fff}
+  .menu-panel{display:none;grid-template-columns:1fr;gap:0;margin-top:18px}
+  .menu-panel.active{display:grid}
+  @media(min-width:760px){.menu-panel.active{grid-template-columns:1fr 1fr;gap:0 48px}}
+  .dish{display:flex;justify-content:space-between;gap:16px;padding:18px 0;border-bottom:1px dashed rgba(245,166,35,.25)}
+  .dish h3{font-size:16.5px;font-weight:700;color:#fff;margin-bottom:4px}
+  .dish p{font-size:13.5px;color:#cdb59a}
+  .price{font-family:'Fraunces',serif;font-weight:700;color:var(--saffron-lt);font-size:17px;white-space:nowrap}
+  .menu-note{margin-top:26px;font-size:13px;color:#cdb59a;display:flex;gap:10px;align-items:flex-start}
+  .menu-note svg{flex:none;margin-top:2px}
+
+  /* GALLERY */
+  .gal-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:30px}
+  @media(min-width:760px){.gal-grid{grid-template-columns:repeat(3,1fr)}}
+  .gal-grid figure{border-radius:18px;overflow:hidden;position:relative;box-shadow:0 14px 34px rgba(61,18,12,.16)}
+  .gal-grid img{width:100%;height:100%;object-fit:cover;aspect-ratio:1/1;transition:transform .5s ease}
+  .gal-grid figure:hover img{transform:scale(1.05)}
+  .gal-grid figcaption{position:absolute;left:0;right:0;bottom:0;padding:30px 16px 14px;font-size:14px;font-weight:700;color:#fff;background:linear-gradient(transparent,rgba(61,18,12,.85))}
+
+  /* REVIEWS */
+  .rev-sec{background:var(--cream2)}
+  .rev-grid{display:grid;gap:16px;margin-top:30px}
+  @media(min-width:760px){.rev-grid{grid-template-columns:repeat(2,1fr)}}
+  .rev{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px;display:flex;flex-direction:column;gap:14px;box-shadow:0 10px 30px rgba(61,18,12,.08)}
+  .stars{display:flex;gap:3px}
+  .rev p{font-size:16px;color:var(--ink);font-style:italic}
+  .rev cite{font-style:normal;font-size:12.5px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+  .rev cite b{color:var(--saffron)}
+
+  /* VISIT */
+  .visit-grid{display:grid;gap:16px;margin-top:30px}
+  @media(min-width:760px){.visit-grid{grid-template-columns:repeat(3,1fr)}}
+  .vcard{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px;box-shadow:0 10px 30px rgba(61,18,12,.06)}
+  .vcard h3{font-size:19px;margin:14px 0 8px;color:var(--maroon)}
+  .vcard p,.vcard li{font-size:14.5px;color:var(--muted);list-style:none}
+  .vcard li{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px dashed var(--line)}
+  .vcard li:last-child{border:none}
+  .vcard li b{color:var(--ink);font-weight:600}
+  .vcard a.tel{color:var(--maroon);font-size:21px;font-weight:700;text-decoration:none;font-family:'Fraunces',serif}
+  .icon-ball{width:44px;height:44px;border-radius:14px;background:rgba(217,126,6,.12);border:1px solid var(--line);display:flex;align-items:center;justify-content:center}
+
+  /* CTA band */
+  .cta-band{background:linear-gradient(135deg,var(--maroon),var(--maroon-dk));text-align:center;color:#fff}
+  .cta-band h2{font-size:clamp(26px,5vw,42px);margin-bottom:12px;color:#fff}
+  .cta-band h2 em{font-style:italic;color:var(--saffron-lt)}
+  .cta-band p{color:#e8d3b8;margin-bottom:26px;max-width:560px;margin-left:auto;margin-right:auto}
+
+  /* FOOTER */
+  footer{background:var(--maroon-dk);color:#d8c3ac;padding:44px 0 calc(28px + env(safe-area-inset-bottom,0px))}
+  .foot-grid{display:grid;gap:28px}
+  @media(min-width:760px){.foot-grid{grid-template-columns:1.4fr 1fr 1fr}}
+  footer p,footer li{font-size:13.5px;color:#b89c80;list-style:none}
+  footer h4{font-size:12px;text-transform:uppercase;letter-spacing:.2em;color:var(--saffron-lt);margin-bottom:14px}
+  footer li{margin-bottom:8px}
+  .demo-tag{margin-top:30px;padding-top:20px;border-top:1px solid rgba(245,166,35,.15);font-size:11px;letter-spacing:.18em;color:#8a6f56;text-transform:uppercase;text-align:center}
+
+  /* sticky call bar */
+  .sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;align-items:center;justify-content:space-between;gap:12px;background:rgba(61,18,12,.97);backdrop-filter:blur(10px);border-top:1px solid rgba(245,166,35,.3);padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));transform:translateZ(0)}
+  .sticky-cta::after{content:"";position:absolute;top:100%;left:0;right:0;height:140px;background:rgba(61,18,12,.97);pointer-events:none}
+  .sticky-cta .t1{font-size:10px;letter-spacing:.2em;color:var(--saffron-lt);text-transform:uppercase;font-weight:700}
+  .sticky-cta .t2{font-size:13px;font-weight:600;color:#fff}
+  @media(min-width:900px){.sticky-cta{display:none}}
+</style>
+</head>
+<body>
+
+<div class="ribbon">Open daily from 4 PM &nbsp;·&nbsp; <b>10% off</b> collection orders over £20</div>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Indian Garden home">
+      <span class="brand-mark">IG</span>
+      <span class="brand-name">Indian Garden<small>Kirkwall · Orkney</small></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#menu">Menu</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#visit">Visit Us</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:8px;flex:none">
+      <a class="btn" href="tel:+441856875575">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Order Takeaway
+      </a>
+      <button class="burger" id="burger" aria-label="Open menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+      </button>
+    </div>
+  </div>
+  <nav class="mobile-menu" id="mmenu" aria-label="Mobile">
+    <a href="#about">About</a>
+    <a href="#menu">Menu</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#visit">Visit Us</a>
+  </nav>
+</header>
+
+<main id="top">
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"><img src="images/hero.jpg" alt="Indian thali at Indian Garden"></div>
+  <div class="hero-inner">
+    <span class="eyebrow reveal">Kirkwall · Orkney · Scotland</span>
+    <h1 class="reveal">The Best Indian Cuisine <em>in Orkney.</em></h1>
+    <p class="reveal">Great food, great service — authentic Indian dishes with a Bengali soul, cooked fresh every evening. Dine in, take away, or get it delivered.</p>
+    <div class="hero-cta reveal">
+      <a class="btn" href="#menu">Explore the Menu</a>
+      <a class="btn btn-outline" href="tel:+441856875575">Call 01856 875575</a>
+    </div>
+    <div class="pill-row reveal">
+      <span class="pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="#f5a623"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><b>4.0</b>&nbsp;Google · 389 reviews</span>
+      <span class="pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="#f5a623"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><b>4.0</b>&nbsp;TripAdvisor · 281 reviews</span>
+      <span class="pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#f5a623" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>Open daily from 4 PM</span>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="sec" id="about">
+  <div class="wrap about-grid">
+    <div class="about-img reveal"><img src="images/interior.webp" alt="Indian Garden dining room"></div>
+    <div>
+      <span class="eyebrow reveal">Our Story</span>
+      <h2 class="sec-title reveal">Magic on Every <em>Plate</em></h2>
+      <p class="sec-sub reveal">At Indian Garden restaurant &amp; takeaway we create magic for all — authentic Indian food with clear Bengali roots, from tandoor-grilled kebabs to slow-cooked curries. Why go anywhere else?</p>
+      <div class="feat-grid">
+        <div class="feat reveal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#d97e06" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Dine-in, takeaway &amp; delivery</div>
+        <div class="feat reveal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#d97e06" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>10% off collection over £20</div>
+        <div class="feat reveal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#d97e06" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Vegetarian, vegan &amp; gluten-free</div>
+        <div class="feat reveal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#d97e06" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Kebab &amp; pizza takeaway too</div>
+        <div class="feat reveal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#d97e06" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Late night Fri &amp; Sat till 1:30 AM</div>
+        <div class="feat reveal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#d97e06" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Thursday banquet offers</div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- MENU -->
+<section class="sec menu-sec" id="menu">
+  <div class="wrap">
+    <span class="eyebrow reveal">The Menu</span>
+    <h2 class="sec-title reveal">From the Tandoor, <em>with Love</em></h2>
+    <p class="sec-sub reveal">A taste of our most-loved dishes. Thursday banquet &amp; weekend feast offers run regularly — call for today's specials.</p>
+    <div class="tabs reveal" role="tablist">
+      <button class="tab active" data-tab="starters">Starters</button>
+      <button class="tab" data-tab="grill">Tandoori &amp; Grill</button>
+      <button class="tab" data-tab="curries">Curries</button>
+      <button class="tab" data-tab="sets">Biryani · Sets · Sides</button>
+    </div>
+
+    <div class="menu-panel active" id="panel-starters">
+      <div class="dish reveal"><div><h3>Chicken Tikka Starter</h3><p>Pieces of spring chicken, lightly spiced, grilled in the clay oven.</p></div><span class="price">£3.95</span></div>
+      <div class="dish reveal"><div><h3>Mix Kebab Starter</h3><p>Lamb tikka, chicken tikka, sheek kebab &amp; onion bhaji.</p></div><span class="price">£5.45</span></div>
+    </div>
+
+    <div class="menu-panel" id="panel-grill">
+      <div class="dish reveal"><div><h3>Tandoori Mixed Grill</h3><p>Lamb tikka, chicken tikka, tandoori chicken &amp; sheek kebab — straight from the clay oven.</p></div><span class="price">£12.95</span></div>
+      <div class="dish reveal"><div><h3>Mixed Kebab</h3><p>From our kebab &amp; pizza takeaway menu.</p></div><span class="price">£10.95</span></div>
+      <div class="dish reveal"><div><h3>Donner Kebab</h3><p>From our kebab &amp; pizza takeaway menu.</p></div><span class="price">£8.95</span></div>
+    </div>
+
+    <div class="menu-panel" id="panel-curries">
+      <div class="dish reveal"><div><h3>Chicken Tikka Masala</h3><p>Marinated chicken, charcoal grilled, cooked in a thick creamy sauce.</p></div><span class="price">£9.95</span></div>
+      <div class="dish reveal"><div><h3>Tiger Special Chicken</h3><p>Highly recommended — cooked with Indian Garden's own recipe.</p></div><span class="price">£9.95</span></div>
+      <div class="dish reveal"><div><h3>Bangladeshi Chicken</h3><p>Grilled in the tandoor with mushrooms, onions, peppers &amp; fresh Dhaka masala.</p></div><span class="price">£9.95</span></div>
+      <div class="dish reveal"><div><h3>Chicken Rajshahi</h3><p>Cooked in rare wild spices with fresh mango, cream, almonds &amp; sultanas.</p></div><span class="price">£9.95</span></div>
+      <div class="dish reveal"><div><h3>Butter Chicken</h3><p>Charcoal-grilled chicken cooked with Indian spices in a creamy sauce.</p></div><span class="price">£9.95</span></div>
+      <div class="dish reveal"><div><h3>Chicken Korma</h3><p>The classic mild, creamy curry.</p></div><span class="price">£8.95</span></div>
+      <div class="dish reveal"><div><h3>King Prawn Saag</h3><p>King prawns folded through spiced spinach.</p></div><span class="price">£13.95</span></div>
+    </div>
+
+    <div class="menu-panel" id="panel-sets">
+      <div class="dish reveal"><div><h3>Chicken Biryani</h3><p>Fragrant basmati layered with spiced chicken.</p></div><span class="price">£8.95</span></div>
+      <div class="dish reveal"><div><h3>Set Meal for One</h3><p>The full Indian Garden experience for one.</p></div><span class="price">£14.95</span></div>
+      <div class="dish reveal"><div><h3>Set Meal for Two</h3><p>The full Indian Garden experience for two.</p></div><span class="price">£27.95</span></div>
+      <div class="dish reveal"><div><h3>Set Meal for Four</h3><p>The full Indian Garden experience for four.</p></div><span class="price">£49.95</span></div>
+      <div class="dish reveal"><div><h3>Pilau Rice</h3><p>Classic accompaniment.</p></div><span class="price">£4.00</span></div>
+      <div class="dish reveal"><div><h3>Garlic / Peshwari Naan</h3><p>Fresh from the tandoor.</p></div><span class="price">£4.00</span></div>
+    </div>
+
+    <p class="menu-note reveal"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f5a623" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.01" stroke-linecap="round"/></svg><span>Please let us know about allergies. Vegetarian, vegan and gluten-free options available — just ask.</span></p>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="sec">
+  <div class="wrap">
+    <span class="eyebrow reveal">Fresh From the Kitchen</span>
+    <h2 class="sec-title reveal">Cooked Fresh, <em>Every Evening</em></h2>
+    <div class="gal-grid">
+      <figure class="reveal"><img src="images/tikka.jpg" alt="Chicken tikka masala" loading="lazy"><figcaption>Chicken Tikka Masala</figcaption></figure>
+      <figure class="reveal"><img src="images/grill.jpg" alt="Tandoori mixed grill" loading="lazy"><figcaption>Tandoori Mixed Grill</figcaption></figure>
+      <figure class="reveal"><img src="images/hero.jpg" alt="Indian thali" loading="lazy"><figcaption>The Indian Garden Thali</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="sec rev-sec" id="reviews">
+  <div class="wrap">
+    <span class="eyebrow reveal">Guest Love</span>
+    <h2 class="sec-title reveal">What Kirkwall <em>Says</em></h2>
+    <div class="rev-grid">
+      <div class="rev reveal">
+        <div class="stars">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#d97e06"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="#d97e06"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="#d97e06"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="#d97e06"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="#d97e06"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+        </div>
+        <p>"Absolutely amazing food, cooked to perfection and they have the best naan bread on Earth."</p>
+        <cite><b>TripAdvisor</b> · 5 stars</cite>
+      </div>
+      <div class="rev reveal">
+        <div class="stars">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#d97e06"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="#d97e06"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="#d97e06"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="#d97e06"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="#d97e06"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+        </div>
+        <p>"Busy place, food yummy, price awesome, staff really friendly."</p>
+        <cite><b>Google</b> · 5 stars</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISIT -->
+<section class="sec" id="visit">
+  <div class="wrap">
+    <span class="eyebrow reveal">Find Us</span>
+    <h2 class="sec-title reveal">Open Daily <em>from 4 PM</em></h2>
+    <div class="visit-grid">
+      <div class="vcard reveal">
+        <div class="icon-ball"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d97e06" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <h3>Address</h3>
+        <p>37 Junction Road<br>Kirkwall KW15 1AG<br>Orkney, Scotland</p>
+        <p style="margin-top:14px"><a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&query=Indian+Garden+37+Junction+Road+Kirkwall+KW15+1AG" target="_blank" rel="noopener">Get Directions</a></p>
+      </div>
+      <div class="vcard reveal">
+        <div class="icon-ball"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d97e06" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <h3>Opening Hours</h3>
+        <ul>
+          <li><b>Mon – Thu</b><span>4 PM – 12 AM</span></li>
+          <li><b>Fri – Sat</b><span>4 PM – 1:30 AM</span></li>
+          <li><b>Sunday</b><span>4 PM – 12 AM</span></li>
+        </ul>
+        <p style="margin-top:10px;font-size:13px">Delivery &amp; takeout daily 4 – 11 PM.</p>
+      </div>
+      <div class="vcard reveal">
+        <div class="icon-ball"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d97e06" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+        <h3>Order or Book</h3>
+        <p style="margin-bottom:10px">Call for takeaway, delivery or a table.</p>
+        <a class="tel" href="tel:+441856875575">01856 875575</a>
+        <p style="margin-top:14px"><a class="btn" href="tel:+441856875575">Call Now</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sec cta-band">
+  <div class="wrap">
+    <h2 class="reveal">Hungry <em>Tonight?</em></h2>
+    <p class="reveal">We're open from 4 PM daily — dine in, collect with 10% off over £20, or get it delivered.</p>
+    <div class="reveal" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <a class="btn" href="#menu">See the Menu</a>
+      <a class="btn btn-outline" style="color:#fff;border-color:rgba(255,255,255,.5)" href="tel:+441856875575">01856 875575</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="#top" style="margin-bottom:14px">
+          <span class="brand-mark">IG</span>
+          <span class="brand-name" style="color:#fff">Indian Garden<small>Kirkwall · Orkney</small></span>
+        </a>
+        <p>Great food, great service — the best Indian cuisine in Orkney. Restaurant &amp; takeaway in Kirkwall.</p>
+      </div>
+      <div>
+        <h4>Visit</h4>
+        <ul>
+          <li>37 Junction Road, Kirkwall</li>
+          <li>KW15 1AG, Orkney</li>
+          <li><a href="tel:+441856875575" style="color:#f5a623;text-decoration:none">01856 875575</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Hours</h4>
+        <ul>
+          <li>Mon – Thu: 4 PM – 12 AM</li>
+          <li>Fri – Sat: 4 PM – 1:30 AM</li>
+          <li>Sunday: 4 PM – 12 AM</li>
+        </ul>
+      </div>
+    </div>
+    <div class="demo-tag">Demo concept &middot; Built by Wahab Codes</div>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <div><div class="t1">Indian Garden</div><div class="t2">Order Takeaway</div></div>
+  <a class="btn" href="tel:+441856875575">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    01856 875575
+  </a>
+</div>
+
+<script>
+var burger=document.getElementById('burger'),mmenu=document.getElementById('mmenu');
+burger.addEventListener('click',function(){mmenu.classList.toggle('open')});
+mmenu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mmenu.classList.remove('open')})});
+document.querySelectorAll('.tab').forEach(function(t){
+  t.addEventListener('click',function(){
+    document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active')});
+    document.querySelectorAll('.menu-panel').forEach(function(p){p.classList.remove('active')});
+    t.classList.add('active');
+    var panel=document.getElementById('panel-'+t.getAttribute('data-tab'));
+    if(panel){panel.classList.add('active');
+      panel.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in')});
+    }
+  });
+});
+(function(){
+  var els=document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1,rootMargin:'0px 0px -30px 0px'});
+  els.forEach(function(e){io.observe(e)});
+})();
+</script>
+</body>
+</html>
